@@ -1,10 +1,6 @@
 class Solution(object):
     def search(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: int
-        """
+       
         start = 0
         end = len(nums) -1 
         while (start <= end):
@@ -16,5 +12,4 @@ class Solution(object):
             else:
                 start = mid + 1
         return -1
-                
                 
