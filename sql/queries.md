@@ -19,4 +19,13 @@ group by continent;
 
                    
                    
-       
+select h.hacker_id, h.name, sum(s.highscores) from hackers as h
+inner join(
+    select hacker_id, challenge_id, max(score) as highscores from submissions as s
+    group by hacker_id, challenge_id
+) as s
+on s.hacker_id = h.hacker_id
+group by h.hacker_id, h.name
+having sum(s.highscores) > 0
+order by
+sum(s.highscores) desc, h.hacker_id;
