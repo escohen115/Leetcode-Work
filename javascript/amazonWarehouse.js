@@ -4,37 +4,33 @@
 
 
 
-sort the array and add it up (total)
-create another variable (total2)
-
-starting from the end of the array, remove that amount from the total, and add to total2 until total2 is greater than total 1
 
 
 
 
-function test (s){
+function newMethod (s){
+    let status = null
 
-
-    let keys = []
-    let bars = 0
-    let total = 0
-    for (let i = 0; i < s.length; i++){
-
-        if (s[i] === '|'){ // if we find a |
-            keys.push(i) // store the index of the last seen |
-            
-        // if (bars % 2 === 0){ // and there are an even number (meaning this one has an opener)
-        //     total+= keys[1] - keys[0] - 1
-        //     keys = []
-        // }
-        }
+    function toggle(){
+        status = status === 'stop' ? 'start': 'stop'
     }
-    // return keys
+    let total = 0
+    let counter = 0
 
-    for (let i=keys.length-1; i>0; i-=1){
-        total += keys[i] - keys[i-1] -1
+    for(let i=0;i<s.length;i++){
+        if(s[i]==='|'){
+            toggle()
+        }
+        if(status === 'stop'){
+            total+=counter
+            counter=0
+            toggle()
+        }
+        else if(status ==='start'){
+            counter++
+        }
         
     }
     return total
 }
-
+console.log(newMethod("|**|*|"))
