@@ -4,6 +4,12 @@
 
 
 
+sort the array and add it up (total)
+create another variable (total2)
+
+starting from the end of the array, remove that amount from the total, and add to total2 until total2 is greater than total 1
+
+
 
 
 function test (s){
@@ -32,5 +38,3 @@ function test (s){
     return total
 }
 
-
-console.log(test('*|**|**'))
